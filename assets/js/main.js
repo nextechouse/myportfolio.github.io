@@ -30,24 +30,68 @@ function linkAction(){
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
+/*==================== About Me Counting ====================*/
+
+const records_wrap = document.querySelector('.about__data');
+const records_numbers = document.querySelectorAll('.number');
+
+function countUp() {
+    if (!checkScroll(records_wrap)) return;
+    records_numbers.forEach((numb) => {
+      const updateCount = () => {
+        let currentNum = +numb.innerText;
+        let maxNum = +numb.dataset.num;
+        let speed = 100;
+        const increment = Math.ceil(maxNum / speed);
+  
+        if (currentNum < maxNum) {
+          numb.innerText = currentNum + increment;
+          setTimeout(updateCount, 1);
+        } else {
+          numb.innerText = maxNum;
+        }
+      };
+  
+      setTimeout(updateCount, 100);
+    });
+  }
+
 /*==================== ACCORDION SKILLS ====================*/
 const skillsContent = document.getElementsByClassName('skills__content'),
       skillsHeader = document.querySelectorAll('.skills__header')
+      const skills_wrap = document.querySelector('.skills__content');
+      const skills_bars = document.querySelectorAll('.skills__percentage');
 
 function toggleSkills(){
-    let itemClass = this.parentNode.className
+    let itemClass = this.parentNode.className;
 
     for(i = 0; i < skillsContent.length; i++){
-        skillsContent[i].className = 'skills__content skills__close'
+        skillsContent[i].className = 'skills__content skills__close';
     }
     if(itemClass === 'skills__content skills__close'){
-        this.parentNode.className = 'skills__content skills__open'
+        this.parentNode.className = 'skills__content skills__open';
     }
 }
 
 skillsHeader.forEach((el) => {
-    el.addEventListener('click', toggleSkills)
+    el.addEventListener('click', toggleSkills);
 })
+
+window.addEventListener("scroll", () => {
+    skillsEffect();
+    countUp();
+});
+
+function checkScroll(el){
+    let rect = el.getBoundingClientRect();
+    if(window.innerHeight >= rect.top + el.offsetHeight) return true;
+    return false;
+}
+
+function skillsEffect(){
+    if(!checkScroll(skills_wrap)) return;
+    skills_bars.forEach(skill => skill.style.width = skill.dataset.progress);
+}
 
 /*==================== QUALIFICATION TABS ====================*/
 const tabs = document.querySelectorAll('[data-target]'),
@@ -190,3 +234,16 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+// Send email
+function sendEmail(){
+    Email.send({
+        SecureToken : "97588632-fe5d-4a8e-89cb-227f2e5074bb",
+        To : 'laya30348@gmail.com',
+        From : document.getElementById("email").value,
+        Subject : "Project Name : " + document.getElementById("project").value,
+        Body : "Name : " + document.getElementById("name").value + "</br> Email : " + document.getElementById("email").value + "<br> Message : " + document.getElementById("message").value
+    }).then(
+      message => alert("Message sent successfully!")
+    );
+}
