@@ -60,8 +60,8 @@ function countUp() {
 
 const skillsContent = document.getElementsByClassName('skills__content'),
       skillsHeader = document.querySelectorAll('.skills__header')
-    //   const skills_wrap = document.querySelector('.skills__content');
-    //   const skills_bars = document.querySelectorAll('.skills__percentage');
+      const skills_wrap = document.querySelector('.skills__content');
+      const skills_bars = document.querySelectorAll('.skills__percentage');
 
 function toggleSkills(){
     let itemClass = this.parentNode.className;
@@ -78,21 +78,21 @@ skillsHeader.forEach((el) => {
     el.addEventListener('click', toggleSkills);
 })
 
-// window.addEventListener("scroll", () => {
-//     skillsEffect();
-//     countUp();
-// });
+window.addEventListener("scroll", () => {
+    skillsEffect();
+    countUp();
+});
 
-// function checkScroll(el){
-//     let rect = el.getBoundingClientRect();
-//     if(window.innerHeight >= rect.top + el.offsetHeight) return true;
-//     return false;
-// }
+function checkScroll(el){
+    let rect = el.getBoundingClientRect();
+    if(window.innerHeight >= rect.top + el.offsetHeight) return true;
+    return false;
+}
 
-// function skillsEffect(){
-//     if(!checkScroll(skills_wrap)) return;
-//     skills_bars.forEach(skill => skill.style.width = skill.dataset.progress);
-// }
+function skillsEffect(){
+    if(!checkScroll(skills_wrap)) return;
+    skills_bars.forEach(skill => skill.style.width = skill.dataset.progress);
+}
 
 /*==================== QUALIFICATION TABS ====================*/
 const tabs = document.querySelectorAll('[data-target]'),
