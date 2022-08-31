@@ -581,10 +581,10 @@ h1{
 }
 
 .skills__bar{
-  border-radius: 4px;
-  position: relative;
+  /* border-radius: 4px; */
+  /* position: relative; */
   background-color: var(--first-color-lighter);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* .skill-progress {
