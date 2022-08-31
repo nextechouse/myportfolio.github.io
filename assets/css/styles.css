@@ -126,7 +126,7 @@ body {
   color: var(--text-color);
 }
 
-h1, h2, h3, h4 {
+h2, h3, h4 {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
 }
@@ -146,7 +146,9 @@ img {
 
 /*========= Type Writer =========*/
 h1{
-  font-size: clamp(1rem, 3vw + 1rem, 4rem);
+  /* font-size: clamp(1rem, 3vw + 1rem, 4rem); */
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
   position: relative;
   font-family: "Source Code Pro", monospace;
   width: max-content;
@@ -605,7 +607,7 @@ h1{
 }
 
 /* skills 1 */
-.skills__html{
+/* .skills__html{
   width: 80%;
 }
 
@@ -627,10 +629,10 @@ h1{
 
 .skills__angular{
   width: 30%;
-}
+} */
 
 /* skills 2 */
-.skills__php{
+/* .skills__php{
   width: 50%;
 }
 
@@ -644,10 +646,10 @@ h1{
 
 .skills__python{
   width: 60%;
-}
+} */
 
 /* skills 3 */
-.skills__java{
+/* .skills__java{
   width: 80%;
 }
 
@@ -657,10 +659,10 @@ h1{
 
 .skills__reactnative{
   width: 50%;
-}
+} */
 
 /* ========= other skills ========= */
-.skills__swift{
+/* .skills__swift{
   width: 30%;
 }
 
@@ -682,7 +684,7 @@ h1{
 
 .skills__mysql{
   width: 40%;
-}
+} */
 
 /* ========== * ========== */
 
