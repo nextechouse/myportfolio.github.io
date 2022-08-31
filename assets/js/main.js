@@ -57,41 +57,42 @@ function countUp() {
   }
 
 /*==================== ACCORDION SKILLS ====================*/
-const skillsContent = document.getElementsByClassName('skills__content'),
-      skillsHeader = document.querySelectorAll('.skills__header')
-      const skills_wrap = document.querySelector('.skills__content');
-      const skills_bars = document.querySelectorAll('.skills__percentage');
 
-function toggleSkills(){
-    let itemClass = this.parentNode.className;
+// const skillsContent = document.getElementsByClassName('skills__content'),
+//       skillsHeader = document.querySelectorAll('.skills__header')
+//       const skills_wrap = document.querySelector('.skills__content');
+//       const skills_bars = document.querySelectorAll('.skills__percentage');
 
-    for(i = 0; i < skillsContent.length; i++){
-        skillsContent[i].className = 'skills__content skills__close';
-    }
-    if(itemClass === 'skills__content skills__close'){
-        this.parentNode.className = 'skills__content skills__open';
-    }
-}
+// function toggleSkills(){
+//     let itemClass = this.parentNode.className;
 
-skillsHeader.forEach((el) => {
-    el.addEventListener('click', toggleSkills);
-})
+//     for(i = 0; i < skillsContent.length; i++){
+//         skillsContent[i].className = 'skills__content skills__close';
+//     }
+//     if(itemClass === 'skills__content skills__close'){
+//         this.parentNode.className = 'skills__content skills__open';
+//     }
+// }
 
-window.addEventListener("scroll", () => {
-    skillsEffect();
-    countUp();
-});
+// skillsHeader.forEach((el) => {
+//     el.addEventListener('click', toggleSkills);
+// })
 
-function checkScroll(el){
-    let rect = el.getBoundingClientRect();
-    if(window.innerHeight >= rect.top + el.offsetHeight) return true;
-    return false;
-}
+// window.addEventListener("scroll", () => {
+//     skillsEffect();
+//     countUp();
+// });
 
-function skillsEffect(){
-    if(!checkScroll(skills_wrap)) return;
-    skills_bars.forEach(skill => skill.style.width = skill.dataset.progress);
-}
+// function checkScroll(el){
+//     let rect = el.getBoundingClientRect();
+//     if(window.innerHeight >= rect.top + el.offsetHeight) return true;
+//     return false;
+// }
+
+// function skillsEffect(){
+//     if(!checkScroll(skills_wrap)) return;
+//     skills_bars.forEach(skill => skill.style.width = skill.dataset.progress);
+// }
 
 /*==================== QUALIFICATION TABS ====================*/
 const tabs = document.querySelectorAll('[data-target]'),
